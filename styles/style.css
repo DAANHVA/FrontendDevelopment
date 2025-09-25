@@ -14,10 +14,15 @@
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+  --color-text: #111;
+  --color-background: #eee;
+
+ 
+  --section1-bg: #f5a3c7; 
+  --section2-bg: #00ac75;
+  --section3-bg: #ffc310; 
 }
+
 
 
 
@@ -29,48 +34,225 @@
 
 /* jouw code */
 
-h1 {
+body {
+  font-family: "obviously-narrow", sans-serif;
+  font: 1rem/1.6;
+  line-height: 1.5;
+  margin: 0rem;
+}
+
+h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .6em; text-transform: uppercase; }
+h1 { font-size: 2.5em; }  
+h2 { font-size: 1.5em; }   
+h3 { font-size: 1.25em; }   
+h4 { font-size: 1em; } 
+
+p {
 font-family: "obviously-narrow", sans-serif;
 font-weight: 400;
 font-style: normal;
-color: var(--color-text);;
 }
 
-p {
-  font-family: "obviously-narrow", sans-serif;
-font-weight: 400;
-font-style: normal;
-}
 
-.nav {
+/* https://stackoverflow.com/questions/2460100/remove-the-complete-styling-of-an-html-button-submit */
+header {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-between;
   align-items: center;
-  max-width: 100%;
-  font-family: "obviously", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+  padding: 0.5rem 1rem;
+  
 }
 
-nav img {
+header button {
+  all: unset
+}
+
+header img {
   max-height: 40px;
   height: auto;
 }
 
+header a {
+text-decoration: none;
+color: var(--color-text);
+}
+
+nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;  
+  width: 80vw;      
+  background: var(--section2-bg);
+}
+
 nav a {
-  font-family: "obviously", sans-serif;
-  font-weight: 700;
-  font-style: normal;
   color: var(--color-text);
   text-decoration: none;
+  color: #eee;
 }
 
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  border-top: 0.5px solid #eee;
+  border-bottom: 0.5px solid #eee;
+  
 }
 
-header>img {
+nav li {
+  
+  font-weight: 700;
+  padding: 0.5rem;
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0.5rem;
+  color: #eee;
+}
+
+nav p {
+  font-weight: 700;
+}
+
+img {
   max-width: 100%;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  min-height: 100vh; 
+  text-align: center; 
+}
+
+section:nth-of-type(1) {
+  background-color: var(--section1-bg);
+}
+
+section:nth-of-type(2) {
+  background-color: var(--section1-bg);
+}
+
+section:nth-of-type(3) {
+  background-color: var(--section2-bg);
+}
+
+section:nth-of-type(4) {
+  background-color: var(--section3-bg);
+   text-align: left;
+   padding: 3rem;
+   color: white; 
+}
+
+section:nth-of-type(5) {
+  background-color: var(--section1-bg);
+}
+
+/* informatie opgezocht over :nth-child https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child */
+  
+Main:nth-child(2)  {
+  width: 100%;
+}
+
+Main:nth-child(2) ul {
+  display: flex;
+  justify-content: flex-end; 
+  
+}
+
+main:nth-child(2) li {
+  display: flex;
+  flex-direction: column;
+  margin: 16px;
+  gap: 0.5rem;
+  
+}
+
+main:nth-child(2) li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+Main:nth-child(2) img {
+  max-height: 200px;
+  height: auto;
+  width: 100%;
+}
+
+Main:nth-child(2) button {
+  padding: 20px;
+  border-radius: 150px;
+}
+
+
+details[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details  {
+  width: 100%;
+  padding: 1.2rem 0;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.474);
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+summary {
+  list-style: none;
+  align-items: flex-start;
+}
+
+details summary:after {
+  content: "+";
+  color: rgb(255, 255, 255);
+  position: absolute;
+  font-size: 1.75rem;
+  line-height: 0;
+  margin-top: 0.75rem;
+  right: 0;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 200ms linear;
+}
+details[open] summary:after {
+  transform: rotate(45deg);
+  font-size: 2rem;
+}
+details summary {
+  outline: 0;
+}
+
+details p {
+  font-size: 0.95rem;
+  margin: 0 0 1rem;
+  padding-top: 1rem;
+}
+
+
+/* mobiel */
+@media (max-width: 480px) {
+  h1 { font-size: 1.6em; } 
 }
